@@ -1,0 +1,82 @@
+﻿@page
+@model medicalclinic.Pages.Doctors.EditModel
+
+@{
+    ViewData["Title"] = "Редактировать";
+}
+<head>
+    <style>
+        body {
+            padding: 0px;
+            margin-top: 110px;
+            margin-left: 20px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .site {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #ffffff;
+        }
+
+        .formtitle {
+            text-align: center;
+            color: #1F2B42;
+            font-size: 22px;
+            font-family: Rubik;
+            font-weight: 500;
+            line-height: 56px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<div class="formtitle" style="font-size: 40px;">Редактировать</div>
+
+<div class="formtitle" style=" text-align: left;">Специалист</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Doctors.Id" />
+            <div class="form-group">
+                <label class="control-label">Логин</label>
+                <input asp-for="Doctors.Login" class="form-control" />
+                <span asp-validation-for="Doctors.Login" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Пароль</label>
+                <input asp-for="Doctors.Password" class="form-control" />
+                <span asp-validation-for="Doctors.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Фамилия</label>
+                <input asp-for="Doctors.Surname" class="form-control" />
+                <span asp-validation-for="Doctors.Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Имя</label>
+                <input asp-for="Doctors.Name" class="form-control" />
+                <span asp-validation-for="Doctors.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Отчество</label>
+                <input asp-for="Doctors.Patronymic" class="form-control" />
+                <span asp-validation-for="Doctors.Patronymic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" style="margin-top: 5px; background-color:  #1F2B42; border: 0px" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-page="Index" style="color:#1F2B42;">Назад к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
